@@ -452,7 +452,7 @@
             <div class="b6-top">
                 PROGRAM ARCHITECTURE<br>&<br> CURRICULUM DESIGN
             </div>
-            <div class="b6-big-num">5</div>
+            <div class="b6-big-num">2</div>
             <div class="b6-logo">********</div>
         </div>
 
@@ -527,9 +527,18 @@
     }
 ],
             book2: [
+                {
+        "title": "01",
+        "image": "this is me.jpg", 
+        "content": "",
+        "emphasize": {
+            "title": "",
+            "points": []
+        }
+    },
     {
         "title": "02",
-        "image": "2.jpg", 
+        "image": "princess.jpg", 
         "content": "",
         "emphasize": {
             "title": "",
@@ -538,7 +547,7 @@
     },
     {
         "title": "03",
-        "image": "3.jpg",
+        "image": "josh.jpg",
         "content": "",
         "emphasize": {
             "title": "",
@@ -583,7 +592,7 @@
     },
     {
         "title": "08",
-        "image": "8.png",
+        "image": "3.jpg",
         "content": "",
         "emphasize": {
             "title": "",
@@ -612,7 +621,7 @@
             book3: [
                 {
                     "title": "Project Impact Assessment",
-                    "content": "High retention and proficiency gains across the 'Born Before Computer' cohort confirm that the mentorship model is working. The quantitative data shows a clear transition from digital avoidance to digital capability.",
+                    "content": "High retention and proficiency gains across the program confirm that the mentorship model is working. The quantitative data shows a clear transition from digital avoidance to digital capability.",
                     "emphasize": {
                         "title": "Completion & Quantitative Metrics:",
                         "points": [
@@ -647,13 +656,12 @@
                     }
                 },
                 {
-                    /*I will work on this later */
-                    "title": "Participant Voices",
-                    "content": "Beyond the numbers, the personal testimonials highlight a profound shift from fear to confidence.",
+                    "title": "Josh",
+                    "content": "Josh is an aspiring entrepreneur who participated in the digital literacy class. Before the program, he primarily used his phone for calls and messaging. After the training, he began using both his phone and computer to support his small business and his grandmother’s operations.",
+                    "audio": "lee.mp3",
                     "emphasize": {
-                        "title": "Success Stories:",
+                        "title": "“Before the training, I only used my phone for calls and WhatsApp. Now I use it for my business.”",
                         "points": [
-                            "Alex (Aspiring Entrepreneur): '*INSERT AUDIO CLIP*'"
                         ]
                     }
                 }
@@ -662,7 +670,7 @@
     {
         
   "title": "Liberian Time",
-  "content": "'Liberian Time' is a cultural phenomenon in Liberia where schedules and events follow a flexible rhythm were people don’t rush time; rather, time comes to them. The Digital Literacy Program was designed to accommodate this.",
+  "content": "'Liberian Time' is a cultural phenomenon in Liberia where schedules and events follow a flexible rhythm were people don't rush time; rather, time comes to them. The Digital Literacy Program was designed to accommodate this.",
   "emphasize": {
     "title": "",
     "points": [
@@ -699,7 +707,7 @@
     "emphasize": {
         "title": "Peer-to-Peer Collaboration:",
         "points": [
-            "Students are encouraged to support one another, fostering a welcoming and collaborative learning environment.",
+            "Students are encouraged to support one another.",
             "Peer interaction is used as a core method for troubleshooting and building collective confidence."
         ]
     }
@@ -738,7 +746,7 @@
             book6: [
                 {
                     "title": "How I Identified the Need",
-                    "content": "I first realized the need for this program when I met a talented carpenter who had never used a computer. Despite his skills, he struggled to grow his business without digital tools.",
+                    "content": "I first realized the need for this program when I met a skilled tradesman who had never used a computer. Despite his skills, he struggled to grow his business without digital tools.",
                     "emphasize": {
                         "title": "Key Data Insights:",
                         "points": [
@@ -762,7 +770,7 @@
                 },
                 {
                     "title": "Identifying Interlinked Barriers",
-                    "content": "Insights from Nirmani’s 2025 study on the ‘interlinked barriers’ to digital participation, shows that access alone does not guarantee use. In practice, I observed that while many students owned smartphones, some hesitated to use features like mobile payments, often doubting that phones could securely handle money. Cultural mistrust was just one of several barriers to digital literacy",
+                    "content": "Insights from Nirmani's 2025 study on the 'interlinked barriers' to digital participation, shows that access alone does not guarantee use. In practice, I observed that while many students owned smartphones, some hesitated to use features like mobile payments, often doubting that phones could securely handle money. Cultural mistrust was just one of several barriers to digital literacy",
                     "emphasize": {
                         "title": "Observed Barriers:",
                         "points": [
@@ -836,6 +844,23 @@
 ? `<img src="${section.image}" style="max-width:500px; width:100%; height:auto; border-radius:8px; margin-bottom:15px; border: 2px solid var(--primary-blue);">` 
         : '';
 
+    // Build the audio HTML if an audio file exists
+    const audioHtml = section.audio
+        ? `<div style="background: linear-gradient(135deg, #f0f0ff 0%, #e6e6ff 100%); padding: 20px; border-radius: 12px; margin: 20px 0; border: 3px solid var(--primary-blue); box-shadow: 0 4px 15px rgba(0,0,200,0.1);">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
+                <div style="width: 50px; height: 50px; background: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: white; flex-shrink: 0;">🎙️</div>
+                <div style="flex: 1;">
+                    <div style="font-weight: 700; color: var(--primary-blue); font-size: 1.1rem; margin-bottom: 3px;"></div>
+                    <div style="font-size: 0.85rem; color: #666;"></div>
+                </div>
+            </div>
+            <audio controls style="width:100%; height: 40px; border-radius: 8px; filter: contrast(0.9);">
+                <source src="${section.audio}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+           </div>`
+        : '';
+
     // Build the points HTML list
     const pointsHtml = section.emphasize.points.map(p => 
         `<div class="section-text" style="margin-bottom:5px;">• ${p}</div>`
@@ -845,6 +870,7 @@
         <div class="section-title">${section.title}</div>
         ${imageHtml}
         <div class="section-text">${section.content || ''}</div>
+        ${audioHtml}
         <div class="emphasis-box">
             <div class="emphasis-title">${section.emphasize.title}</div>
             ${pointsHtml}
